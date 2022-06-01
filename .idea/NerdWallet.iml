@@ -46,6 +46,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.12.0, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.3.12, rbenv: 3.0.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cancancan (v1.17.0, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.37.1, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.10, rbenv: 3.0.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, rbenv: 3.0.2) [gem]" level="application" />
@@ -404,8 +405,11 @@
           <RakeTaskImpl description="" fullCommand="spec" id="spec" />
           <RakeTaskImpl id="spec">
             <subtasks>
+              <RakeTaskImpl description="" fullCommand="spec:helpers" id="helpers" />
               <RakeTaskImpl description="" fullCommand="spec:models" id="models" />
               <RakeTaskImpl description="" fullCommand="spec:prepare" id="prepare" />
+              <RakeTaskImpl description="" fullCommand="spec:requests" id="requests" />
+              <RakeTaskImpl description="" fullCommand="spec:routing" id="routing" />
               <RakeTaskImpl description="" fullCommand="spec:statsetup" id="statsetup" />
             </subtasks>
           </RakeTaskImpl>
