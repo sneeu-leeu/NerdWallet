@@ -2,7 +2,16 @@ require 'rails_helper'
 
 RSpec.describe Deal, type: :model do
   describe 'association' do
-    subject { FactoryBot.build :deal }
+    context 'belong-to author' do
+      subject { FactoryBot.build :deal }
+
+      it 'should have an author' do
+        expect(subject.author).to be_present
+      end
+    end
+
+    context 'has-many categories' do
+      subject { FactoryBot.build :deal_with_categories, categories_count: 5 }
 
     it 'should have a name' do
       subject.name = nil
@@ -34,8 +43,9 @@ RSpec.describe Deal, type: :model do
   describe 'author' do
     subject { FactoryBot.build :deal }
 
-    it 'should have an author' do
-      expect(subject.author).to be_present
+    it 'should have deals' do
+      expect(subject.categories.length).to be 5
     end
+  end
   end
 end
