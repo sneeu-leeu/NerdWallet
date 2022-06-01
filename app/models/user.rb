@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :deals
 
-  validates :name, :amount, presence: true, length: { maximum: 100 }
+  validates :name, :email, presence: true, length: { maximum: 100 }
+  validates :email, uniqueness: true
 end
