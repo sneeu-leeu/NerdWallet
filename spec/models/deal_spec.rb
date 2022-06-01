@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Deal, type: :model do
-  describe 'validates' do
+  describe 'association' do
     subject { FactoryBot.build :deal }
 
     it 'should have a name' do
