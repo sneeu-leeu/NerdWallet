@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Deal, type: :model do
+RSpec.describe Category, type: :model do
   describe 'validates' do
-    subject { FactoryBot.build :deal }
+    subject { FactoryBot.build :category }
 
     it 'should have a name' do
       subject.name = nil
@@ -14,28 +14,22 @@ RSpec.describe Deal, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'should have an amount' do
-      subject.amount = nil
-      expect(subject).to_not be_valid
-    end
-
     it 'should have name not longer than 100 chars' do
       subject.name = 'a' * 101
       expect(subject).to_not be_valid
     end
 
-
-    it 'should have an amount greater than 0' do
-      subject.amount = 0
+    it 'should have an icon' do
+      subject.icon = nil
       expect(subject).to_not be_valid
     end
   end
 
-  describe 'author' do
-    subject { FactoryBot.build :deal }
+  describe 'association' do
+    subject { FactoryBot.build :category }
 
-    it 'should have an author' do
-      expect(subject.author).to be_present
+    it 'should have a user' do
+      expect(subject.user).to be_present
     end
   end
 end
