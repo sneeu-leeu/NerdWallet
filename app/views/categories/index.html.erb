@@ -13,7 +13,7 @@
   <% @categories.each do |category| %>
     <tr>
       <td><%= link_to 'Show', category %></td>
-      <td><%= link_to 'Destroy', catagory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
@@ -21,4 +21,5 @@
 
 <br>
 
-<%= link_to 'New Category', new_catagory_path %>
+<%= link_to 'New Category', new_category_path %>
+<%= button_to 'Logout', destroy_user_session_url, method: :delete %>

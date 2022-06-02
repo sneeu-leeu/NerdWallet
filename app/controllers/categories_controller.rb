@@ -1,23 +1,23 @@
-class CatagoriesController < ApplicationController
+class CategoriesController < ApplicationController
   load_and_authorize_resource
   before_action :set_category, only: %i[show destroy]
 
   # GET /categories
   def index
-    @categories = Catagory.all
+    @categories = Category.all
   end
 
-  # GET /catagories/1
+  # GET /categories/1
   def show; end
 
-  # GET /catagories/new
+  # GET /categories/new
   def new
-    @category = Catagory.new
+    @category = Category.new
   end
 
   # POST /categories
   def create
-    @category = Catagory.new(category_params)
+    @category = Category.new(category_params)
 
     respond_to do |format|
       if @category.save
@@ -32,7 +32,7 @@ class CatagoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to catagories_url, notice: 'Category was successfully destroyed.' }
+      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
     end
   end
 
@@ -40,11 +40,11 @@ class CatagoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_category
-    @category = Catagory.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def category_params
-    params.fetch(:catagory, {})
+    params.fetch(:category, {})
   end
 end
