@@ -17,11 +17,11 @@ class CategoriesController < ApplicationController
 
   # POST /categories
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.new(category_params)
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Category was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -35,6 +35,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.fetch(:category, {})
+    params.fetch(:category, {}).permit(:name, :icon)
   end
 end
