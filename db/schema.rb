@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_080552) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
-    t.string "icon", null: false
+    t.string "icon", default: "https://www.cnbc.com/2014/08/12/11-companies-spending-money-to-make-money.html", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
