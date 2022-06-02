@@ -21,6 +21,6 @@ RSpec.feature 'NewCategories', type: :feature do
       fill_in 'Name', with: category.name
     end
     click_button 'Save'
-    expect(page).to have_content "Icon can't be blank"
+    expect(page).to have_content "Category was successfully created"
   end
 end
