@@ -4,7 +4,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { 'password' }
 
-
     factory :user_with_categories do
       transient do
         categories_count { 5 }
