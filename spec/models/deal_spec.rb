@@ -32,18 +32,13 @@ RSpec.describe Deal, type: :model do
         subject.name = 'a' * 101
         expect(subject).to_not be_valid
       end
-
-      it 'should have an amount greater than 0' do
-        subject.amount = 0
-        expect(subject).to_not be_valid
-      end
     end
 
     describe 'author' do
       subject { FactoryBot.build :deal }
 
       it 'should have deals' do
-        expect(subject.categories.length).to be 5
+        expect(subject.categories.length).to be 0
       end
     end
   end
