@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :catagory do
+  factory :category do
     name { Faker::Company.name }
     icon { Faker::Company.logo }
     user
