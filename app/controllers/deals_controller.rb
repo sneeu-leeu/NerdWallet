@@ -13,7 +13,6 @@ class DealsController < ApplicationController
     @deal = Deal.new(deal_params)
     @deal.author = current_user
 
-
     respond_to do |format|
       if @deal.save
         format.html { redirect_to @deal.categories.first, notice: 'Transaction was successfully added.' }
