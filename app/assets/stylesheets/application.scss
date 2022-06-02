@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "_colors.scss";
+
+@font-face {
+    font-family: "ProximaRegular";
+    src: url(/app/assets/fonts/ProximaRegular.otf) format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "ProximaBold";
+    src: url(/app/assets/fonts/PromixaBold.otf) format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "ProximaLight";
+    src: url(/app/assets/fonts/ProximaLight.otf) format("truetype");
+    font-weight: normal;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+html {
+    font-family: "ProximaLight", serif;
+    color: $text-color;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "ProximaBold", serif;
+}
+
+.root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
