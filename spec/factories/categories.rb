@@ -1,4 +1,4 @@
-FFactoryBot.define do
+FactoryBot.define do
   factory :catagory do
     name { Faker::Company.name }
     icon { Faker::Company.logo }
