@@ -13,6 +13,7 @@ class DealsController < ApplicationController
     @deal = Deal.new(deal_params)
     @deal.author = current_user
 
+
     respond_to do |format|
       if @deal.save
         format.html { redirect_to @deal, notice: 'Transaction was successfully added.' }
@@ -25,6 +26,6 @@ class DealsController < ApplicationController
   private
 
   def deal_params
-    params.fetch(:deal, {}).permit(:name, :amount, :categories)
+    params.fetch(:deal, {}).permit(:name, :amount, :category_id)
   end
 end
