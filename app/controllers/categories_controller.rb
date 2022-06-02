@@ -2,20 +2,18 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource
   before_action :set_category, only: %i[show]
 
-  # GET /categories
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
-  # GET /categories/1
-  def show; end
+  def show
+    @deals = @category.deals
+  end
 
-  # GET /categories/new
   def new
     @category = Category.new
   end
 
-  # POST /categories
   def create
     @category = current_user.categories.new(category_params)
 
@@ -28,10 +26,17 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Category was successfully deleted.' }
+    end
+  end
+
   private
 
   def set_category
-    @category = Category.find(params[:id])
+    @category = Category.includes(:deals).find(params[:id])
   end
 
   def category_params
