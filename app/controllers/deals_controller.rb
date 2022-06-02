@@ -16,7 +16,7 @@ class DealsController < ApplicationController
 
     respond_to do |format|
       if @deal.save
-        format.html { redirect_to @deal, notice: 'Transaction was successfully added.' }
+        format.html { redirect_to @deal.categories.first, notice: 'Transaction was successfully added.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -26,6 +26,6 @@ class DealsController < ApplicationController
   private
 
   def deal_params
-    params.fetch(:deal, {}).permit(:name, :amount, :category_id)
+    params.fetch(:deal, {}).permit(:name, :amount, category_ids: [])
   end
 end
