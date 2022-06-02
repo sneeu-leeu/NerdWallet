@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.feature 'Homes', type: :feature do
+RSpec.feature 'Home', type: :feature do
   background do
     @user = FactoryBot.create(:user_with_categories)
     sign_in @user
   end
 
-  scenario 'When the user logins, they are presented with the categories page' do
+  scenario 'When the user logs in, they are presented with the categories page' do
     visit root_path
     expect(page).to have_content 'Categories'
   end
@@ -15,12 +15,20 @@ RSpec.feature 'Homes', type: :feature do
     visit root_path
     @user.categories.each do |category|
       expect(page).to have_content category.name
-      # expect(page).to have_content category.icon
+      expect(first('img') { |img| img[:src] == category.icon }).to be_present
     end
   end
 
-  scenario 'There is a button "add a new category"' do
+  scenario 'Clicking a category item navigates to the transaction page' do
     visit root_path
-    expect(page).to have_link 'Add a new category'
+    category = @user.categories.first
+    find("a[href='#{category_url(category)}']").click
+    expect(page).to have_current_path(category_path(category))
+  end
+
+  scenario 'There is an "Add a new category" button' do
+    visit root_path
+    click_link 'Add a new category'
+    expect(page).to have_current_path(new_category_path)
   end
 end
