@@ -15,6 +15,10 @@ A mobile web application where you can manage your budget: you have a list of tr
 
 [Heroku](https://infinite-citadel-92406.herokuapp.com)
 
+## Loom Presentation
+
+[Presentation](https://www.loom.com/share/ed9e536ea3e9411c8145b4278d7a4c7f)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
