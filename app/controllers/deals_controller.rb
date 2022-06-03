@@ -17,7 +17,7 @@ class DealsController < ApplicationController
       if @deal.save
         format.html { redirect_to @deal.categories.first, notice: 'Transaction was successfully added.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, flash.now[:error] = 'Transaction was not added.' }
       end
     end
   end

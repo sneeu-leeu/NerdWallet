@@ -21,15 +21,18 @@ class CategoriesController < ApplicationController
       if @category.save
         format.html { redirect_to root_path, notice: 'Category was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, notice: 'Error: Category was not added.' }
       end
     end
   end
 
   def destroy
-    @category.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Category was successfully deleted.' }
+      if @category.destroy
+        format.html { redirect_to root_path, notice: 'Category was successfully deleted.' }
+      else
+        flash.now[:error] = 'Category was not added.'
+      end
     end
   end
 
