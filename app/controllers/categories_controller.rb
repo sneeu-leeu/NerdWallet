@@ -1,13 +1,13 @@
 class CategoriesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_category, only: %i[show]
+  # before_action :set_category, only: %i[show]
 
   def index
     @categories = current_user.categories
   end
 
   def show
-    @deals = @category.deals
+    @deals = @category.deals.order(created_at: 'desc')
   end
 
   def new
@@ -35,9 +35,9 @@ class CategoriesController < ApplicationController
 
   private
 
-  def set_category
-    @category = Category.includes(:deals).find(params[:id])
-  end
+  # def set_category
+  #   @category = Category.includes(:deals).find(params[:id])
+  # end
 
   def category_params
     params.fetch(:category, {}).permit(:name, :icon)

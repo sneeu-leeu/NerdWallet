@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  validates :name, presence: true, length: { maximum: 300 }
+  validates :name, presence: true, length: { maximum: 100 }
   validates :icon, presence: true
 
   belongs_to :user
