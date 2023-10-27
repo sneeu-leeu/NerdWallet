@@ -44,7 +44,7 @@ bundle install
 
 ```sh
 # Create user
-sudo -u postgres createuser recipe_app -s
+sudo -u postgres createuser Nerd_Wallet -s
 
 # Create the database
 rails db:create
